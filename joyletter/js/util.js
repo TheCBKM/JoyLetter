@@ -77,7 +77,10 @@ function    OnLoad(bool) {
     });
 
 }
-
+function logout() {
+    localStorage.clear();
+    window.location.href = "../index.html"
+}
 
 
 function share() {

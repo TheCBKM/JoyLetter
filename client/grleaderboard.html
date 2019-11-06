@@ -552,6 +552,28 @@
                 transform: rotate(360deg);
             }
         }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            text-align: center;
+            padding: 16px;
+        }
+
+        th:first-child,
+        td:first-child {
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2
+        }
     </style>
     <script>
         jQuery(function ($) {
@@ -753,25 +775,26 @@
                         </li>
                         <li>
                             <a href="grleaderboard.html">
-                                <i class="fa fa-calendar"></i>
+                                <i class="fa fa-trophy"></i>
                                 <span>Group Leaderboard</span>
                             </a>
                         </li>
                         <li>
                             <a href="grpleaderboard.html">
-                                <i class="fa fa-folder"></i>
+                                <i class="fa fa-trophy"></i>
                                 <span>Global Leaderboard</span>
                             </a>
                         </li>
                         <li>
                             <a href="progress.html">
-                                <i class="fa fa-folder"></i>
+                                <i class="fa  fa-folder" aria-hidden="true"></i>
+
                                 <span>Your Progress</span>
                             </a>
                         </li>
                         <li>
                             <a href="../joyletter/index.html">
-                                <i class="fa fa-folder"></i>
+                                <i class="fa fa-book"></i>
                                 <span>Joy Letter</span>
                             </a>
                         </li>
@@ -813,6 +836,20 @@
                 <h4>
                     <script>document.write(getStorage('sankalp').name)</script>
                 </h4>
+                <table>
+                    <tbody id="wow">
+                        <tr>
+                            <!-- <th>Rank</th> -->
+
+                            <th style="width:50%">Name</th>
+                            <th>Mala</th>
+                            <th>Happy</th>
+                            <th>Pages</th>
+
+                        </tr>
+
+                    </tbody>
+                </table>
                 <ul id="grlist" class="list-group">
                     <center>
                         <div class="lds-ring">
@@ -823,8 +860,8 @@
                         </div>
                     </center>
 
-                </ul>
-             
+                
+
         </main>
         <!-- page-content" -->
     </div>
@@ -837,7 +874,7 @@
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script>
-      
+
     </script>
 </body>
 

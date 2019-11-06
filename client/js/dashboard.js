@@ -1,5 +1,5 @@
 start = 0
-version="1"
+version = "1"
 function check() {
     if (getStorage("user")) {
         axios.post(`${url}sankalp/getsankalp`, {
@@ -27,9 +27,11 @@ function calculate() {
 }
 
 function sendJap() {
-    if (document.getElementById('mala').value)
+    if (document.getElementById('mala').value != 0  && start != 0) {
+
+
         // axios.post(`${url}user/canjap`, { user: getStorage('user')._id }).then(res => {
-        //     console.log(res.data)
+            // console.log(res.data)
         // if (res.data.event) {
         axios.post(`${url}user/jap`, {
             user: getStorage('user')._id,
@@ -41,17 +43,16 @@ function sendJap() {
             .then(res1 => {
                 console.log(res1.data)
                 if (res1.data.success)
-                    document.getElementById("main").innerHTML = `<h2>Successfully Recorded </h2>
-                        <h3>Take nam & please Visit tomorrow </h3>`
+                    document.getElementById("main").innerHTML = ` <script>document.write(getStorage("lang") == 0 ?"<h2>Successfully Recorded </h2>
+                    <h3>Take nam & please see you ranking on Leaderboard </h3": "><h2>Successfully Recorded </h2>
+                    <h3>Take nam & please see you ranking on Leaderboard </h3>" )</script`
             })
+    }
+    else{
+        alert("Pleas enter complete values ")
+    }
     //     }
-    //     else {
-    //         document.getElementById("main").innerHTML = `<h2>Opps !!</h2>
-    //        <h3>You have Reached todays limit please enter tomrrow </h3>`
-    //     }
-
-    // })
-    // }
+   
 }
 
 function getGrLea() {
@@ -65,23 +66,44 @@ function getGrLea() {
                 newarr.sort(function (a, b) {
                     return b.cumulative - a.cumulative;
                 });
-                document.getElementById("grlist").innerHTML = `
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                Name
-                <span class="badge badge-primary badge-pill">Mala</span>            <span class="badge badge-secondary badge-pill">Pages</span>
-                <span class="badge badge-success badge-pill">Happy</span>
+        //         document.getElementById("grlist").innerHTML = `
+        //         <li class="list-group-item d-flex justify-content-between align-items-center">
+        //         Name
+        //         <span class="badge badge-primary badge-pill">Mala</span>            <span class="badge badge-secondary badge-pill">Pages</span>
+        //         <span class="badge badge-success badge-pill">Happy</span>
 
-            </li>
-        `
-                newarr.map(d => {
-                    document.getElementById("grlist").innerHTML +=
-                        ` <li class="list-group-item d-flex justify-content-between align-items-center">
-                ${d.user.name}
-                <span class="badge badge-primary badge-pill">${d.cumulative ? d.cumulative : 0}</span>
-                <span class="badge badge-secondary badge-pill">${d.pages ? d.pages : 0}</span>
-                <span class="badge badge-success badge-pill">${d.happy ? d.happy : 0}</span>
-            </li>
-                `})
+        //     </li>`
+        document.getElementById("grlist").innerHTML=""
+                newarr.map((d,i) => {
+                    if(d.user._id==getStorage("user")._id){
+                        document.getElementById("wow").innerHTML+=`  <tr style="background-color:black; color:white">
+                   
+                        <td color="red">${i+1}. ${d.user.name}</th>
+                        <td>${d.cumulative ? d.cumulative : 0}</th>
+                        <td>${d.happy ? d.happy : 0}</th>
+                        <td>${d.pages ? d.pages : 0}</th>
+    
+                    </tr>`
+                    }
+                    else{                    
+                    document.getElementById("wow").innerHTML+=`  <tr>
+                    
+                    <td> ${i+1}. ${d.user.name}</th>
+                    <td>${d.cumulative ? d.cumulative : 0}</th>
+                    <td>${d.happy ? d.happy : 0}</th>
+                    <td>${d.pages ? d.pages : 0}</th>
+
+                </tr>`
+                    }
+            //         document.getElementById("grlist").innerHTML +=
+            //             ` <li class="list-group-item d-flex justify-content-between align-items-center">
+            //     ${d.user.name}
+            //     <span class="badge badge-primary badge-pill">${d.cumulative ? d.cumulative : 0}</span>
+            //     <span class="badge badge-secondary badge-pill">${d.pages ? d.pages : 0}</span>
+            //     <span class="badge badge-success badge-pill">${d.happy ? d.happy : 0}</span>
+            // </li>
+            //     `
+        })
                 console.log(newarr)
 
             }
@@ -168,7 +190,7 @@ function getProgress() {
 }
 function myjap(d) {
     if (d == 1) {
-        document.getElementById('jap').innerHTML = `${getStorage("myjap") ? getStorage("myjap")%108 : 0}<br>Mala=${getStorage("myjap") ? `${Math.trunc(getStorage("myjap") / 108)}` : 0
+        document.getElementById('jap').innerHTML = `${getStorage("myjap") ? getStorage("myjap") % 108 : 0}<br>Mala=${getStorage("myjap") ? `${Math.trunc(getStorage("myjap") / 108)}` : 0
             } `
     }
     else {
@@ -184,8 +206,8 @@ function myjap(d) {
     }
 }
 
-function setStar(s){
-    start=s
+function setStar(s) {
+    start = s
 }
 function addMala() {
     setStorage('finalJap', getStorage('myjap'))
@@ -200,8 +222,8 @@ function logout() {
 }
 
 
-function switchLang(){
-    setStorage("lang",getStorage("lang")==0?1:0)
+function switchLang() {
+    setStorage("lang", getStorage("lang") == 0 ? 1 : 0)
     window.location.reload()
 }
 check()
