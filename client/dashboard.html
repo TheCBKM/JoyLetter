@@ -887,7 +887,30 @@
                             <script>document.write(getStorage("lang") == 0 ? "‌‌कृपया ध्यान दें की पुस्तकों का पठन विचारों को नई दिशा एवं इसलिये निश्चित आनंद की ओर ले जाते हैं.":"Reading helps in changing thought process & improve happiness .")</script>
                             </b></small>
                 </div>
-                <button type="submit" onclick="sendJap()" class="btn btn-primary">Add</button>
+                <button type="button"  class="btn btn-primary" data-toggle="modal"
+                data-target="#addModal">
+               ADD
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-body">
+                                Is this A new count to add or total for today <br>
+
+                        </div>
+                        <div class="modal-footer">
+                <button type="submit" onclick="sendJap()" class="btn btn-primary" data-dismiss="modal">Add</button>              
+                  <button type="submit" onclick="todayJap()" class="btn btn-primary" data-dismiss="modal">Total</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
             </div>
             <!-- Button trigger modal -->

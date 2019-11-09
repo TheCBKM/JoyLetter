@@ -8,7 +8,7 @@ function check() {
             .then(res => {
                 console.log(res.data)
                 if (res.data.success) {
-                    setStorage("sankalp", res.data.event)
+                    setStorage("sankalp", res.data.event[0])
 
                 }
             })
@@ -27,11 +27,11 @@ function calculate() {
 }
 
 function sendJap() {
-    if (document.getElementById('mala').value != 0  && start != 0) {
+    if (document.getElementById('mala').value != 0 && start != 0) {
 
 
         // axios.post(`${url}user/canjap`, { user: getStorage('user')._id }).then(res => {
-            // console.log(res.data)
+        // console.log(res.data)
         // if (res.data.event) {
         axios.post(`${url}user/jap`, {
             user: getStorage('user')._id,
@@ -42,17 +42,23 @@ function sendJap() {
         })
             .then(res1 => {
                 console.log(res1.data)
-                if (res1.data.success)
-                    document.getElementById("main").innerHTML = ` <script>document.write(getStorage("lang") == 0 ?"<h2>Successfully Recorded </h2>
-                    <h3>Take nam & please see you ranking on Leaderboard </h3": "><h2>Successfully Recorded </h2>
-                    <h3>Take nam & please see you ranking on Leaderboard </h3>" )</script`
+                if (res1.data.success) {
+                    if (getStorage("lang") == 0) {
+                        document.getElementById("main").innerHTML = ` <h2>Successfully Recorded </h2><h3>Take nam & please see you ranking on Leaderboard </h3>`
+
+                    }
+                    else
+                        document.getElementById("main").innerHTML = ` <h2>Successfully Recorded </h2><h3>Take nam & please see you ranking on Leaderboard </h3> `
+
+                }
+
             })
     }
-    else{
+    else {
         alert("Pleas enter complete values ")
     }
     //     }
-   
+
 }
 
 function getGrLea() {
@@ -66,44 +72,44 @@ function getGrLea() {
                 newarr.sort(function (a, b) {
                     return b.cumulative - a.cumulative;
                 });
-        //         document.getElementById("grlist").innerHTML = `
-        //         <li class="list-group-item d-flex justify-content-between align-items-center">
-        //         Name
-        //         <span class="badge badge-primary badge-pill">Mala</span>            <span class="badge badge-secondary badge-pill">Pages</span>
-        //         <span class="badge badge-success badge-pill">Happy</span>
+                //         document.getElementById("grlist").innerHTML = `
+                //         <li class="list-group-item d-flex justify-content-between align-items-center">
+                //         Name
+                //         <span class="badge badge-primary badge-pill">Mala</span>            <span class="badge badge-secondary badge-pill">Pages</span>
+                //         <span class="badge badge-success badge-pill">Happy</span>
 
-        //     </li>`
-        document.getElementById("grlist").innerHTML=""
-                newarr.map((d,i) => {
-                    if(d.user._id==getStorage("user")._id){
-                        document.getElementById("wow").innerHTML+=`  <tr style="background-color:black; color:white">
+                //     </li>`
+                document.getElementById("grlist").innerHTML = ""
+                newarr.map((d, i) => {
+                    if (d.user._id == getStorage("user")._id) {
+                        document.getElementById("wow").innerHTML += `  <tr style="background-color:black; color:white">
                    
-                        <td color="red">${i+1}. ${d.user.name}</th>
+                        <td color="red">${i + 1}. ${d.user.name}</th>
                         <td>${d.cumulative ? d.cumulative : 0}</th>
                         <td>${d.happy ? d.happy : 0}</th>
                         <td>${d.pages ? d.pages : 0}</th>
     
                     </tr>`
                     }
-                    else{                    
-                    document.getElementById("wow").innerHTML+=`  <tr>
+                    else {
+                        document.getElementById("wow").innerHTML += `  <tr>
                     
-                    <td> ${i+1}. ${d.user.name}</th>
+                    <td> ${i + 1}. ${d.user.name}</th>
                     <td>${d.cumulative ? d.cumulative : 0}</th>
                     <td>${d.happy ? d.happy : 0}</th>
                     <td>${d.pages ? d.pages : 0}</th>
 
                 </tr>`
                     }
-            //         document.getElementById("grlist").innerHTML +=
-            //             ` <li class="list-group-item d-flex justify-content-between align-items-center">
-            //     ${d.user.name}
-            //     <span class="badge badge-primary badge-pill">${d.cumulative ? d.cumulative : 0}</span>
-            //     <span class="badge badge-secondary badge-pill">${d.pages ? d.pages : 0}</span>
-            //     <span class="badge badge-success badge-pill">${d.happy ? d.happy : 0}</span>
-            // </li>
-            //     `
-        })
+                    //         document.getElementById("grlist").innerHTML +=
+                    //             ` <li class="list-group-item d-flex justify-content-between align-items-center">
+                    //     ${d.user.name}
+                    //     <span class="badge badge-primary badge-pill">${d.cumulative ? d.cumulative : 0}</span>
+                    //     <span class="badge badge-secondary badge-pill">${d.pages ? d.pages : 0}</span>
+                    //     <span class="badge badge-success badge-pill">${d.happy ? d.happy : 0}</span>
+                    // </li>
+                    //     `
+                })
                 console.log(newarr)
 
             }
@@ -206,6 +212,40 @@ function myjap(d) {
     }
 }
 
+function todayJap() {
+    if (document.getElementById('mala').value != 0 && start != 0) {
+
+
+        // axios.post(`${url}user/canjap`, { user: getStorage('user')._id }).then(res => {
+        // console.log(res.data)
+        // if (res.data.event) {
+        axios.post(`${url}user/canjap`, {
+            user: getStorage('user')._id,
+            sankalp: getStorage('sankalp')._id,
+            count: document.getElementById('mala').value,
+            happy: start,
+            pages: document.getElementById('page').value,
+        })
+            .then(res1 => {
+                console.log(res1.data)
+                if (res1.data.success) {
+                    if (getStorage("lang") == 0) {
+                        document.getElementById("main").innerHTML = ` <h2>Successfully Recorded </h2><h3>Take nam & please see you ranking on Leaderboard </h3>`
+
+                    }
+                    else
+                        document.getElementById("main").innerHTML = ` <h2>Successfully Recorded </h2><h3>Take nam & please see you ranking on Leaderboard </h3> `
+
+                }
+
+            })
+    }
+    else {
+        alert("Pleas enter complete values ")
+    }
+    //     }
+
+}
 function setStar(s) {
     start = s
 }
