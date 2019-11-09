@@ -140,6 +140,45 @@ function getProgress(user, group, name) {
         })
 }
 
+function getSankalp() {
+    axios.post(`${url}sankalp/getSankalp`, {
+        group: getStorage('admin').group
+    }).then(res => {
+        console.log(res.data)
+
+        res.data.event.map(d => {
+            document.getElementById("grlist").innerHTML +=
+                ` <li class="list-group-item d-flex justify-content-between align-items-center">
+            ${d.name}
+            
+        </li>
+            `
+
+        })
+
+
+    })
+}
+function addSankalp() {
+    if (document.getElementById('sname').value)
+        axios.post(`${url}sankalp/save`, {
+            name: document.getElementById('name').value,
+            group: getStorage('admin').group
+        }).then(res => {
+            console.log(res.data)
+            if (res.data.success) {
+                document.getElementById("main").innerHTML = `<h2>Sankalp Added <h2>
+            <h3>Sucessfully </h3>`
+            }
+            else {
+                document.getElementById("main").innerHTML = `<h2>Opps!! <h2>
+            <h3>Something went wrong </h3>`
+            }
+
+
+
+        })
+}
 
 function logout() {
     localStorage.clear();

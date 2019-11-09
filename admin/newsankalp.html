@@ -563,7 +563,7 @@
     </script>
 </head>
 
-<body>
+<body onload="getSankalp()">
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
             <i class="fas fa-bars"></i>
@@ -735,13 +735,13 @@
                                 <span>New Sankalp</span>
                             </a>
                         </li>
-                         <li>
+                        <li>
                             <a href="members.html">
                                 <i class="fa fa-calendar"></i>
                                 <span>Members</span>
                             </a>
                         </li>
-                      <!-- <--  <li>
+                        <!-- <--  <li>
                             <a href="#">
                                 <i class="fa fa-folder"></i>
                                 <span>Global leader board</span>
@@ -765,7 +765,7 @@
                                 <span>E-Jap</span>
                             </a>
                         </li>  -->
-                                     </ul>
+                    </ul>
                 </div>
                 <!-- sidebar-menu  -->
             </div>
@@ -792,19 +792,25 @@
         <main class="page-content">
             <div id="main" class="container-fluid">
 
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Add user to your Group</label>
-                    <input onkeyup="addUser()" type="text" class="form-control" id="name" aria-describedby="emailHelp"
-                        placeholder="Name">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Phone No.</label>
-                    <input class="form-control" id="phone" placeholder="Phone No.">
-                </div>
+                <div id="main" class="container-fluid">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">
+                            Sankalp Name</label>
+                        <input type="text" class="form-control" id="sname" aria-describedby="emailHelp"
+                            placeholder="Sankalp Name">
+                    </div>
+                    <br>
 
-                <button type="submit" onclick="addUser()" class="btn btn-primary">Submit</button>
 
-            </div>
+                    <button type="submit" onclick="addSankalp()" class="btn btn-primary">Add</button>
+                </div>
+<br>
+
+                <ul id="grlist" class="list-group">
+                  
+
+
+                </ul>
 
         </main>
         <!-- page-content" -->
