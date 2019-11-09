@@ -23,15 +23,15 @@ function addUser() {
             group: getStorage('admin').group
         }).then(res => {
             console.log(res.data)
-            if(res.data.success){
+            if (res.data.success) {
                 document.getElementById("main").innerHTML = `<h2>User Added <h2>
                 <h3>Sucessfully </h3>`
             }
-            else{
+            else {
                 document.getElementById("main").innerHTML = `<h2>Opps!! <h2>
                 <h3>Nuber Already Registered </h3>`
             }
-          
+
 
 
         })
@@ -71,10 +71,75 @@ function myjap(d) {
 }
 
 
-function resetJap() {
-    setStorage('myjap', 0)
-    document.getElementById('jap').innerHTML = -1
+function getMembers() {
+
+    axios.post(`${url}admin/members`, { group: getStorage('admin').group })
+        .then(res => {
+            console.log(res)
+            if (res.data.success) {
+                data = res.data.event
+                document.getElementById("grlist").innerHTML = `
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                Name
+                <span class="badge badge-primary badge-pill">Mala</span>
+            </li>`
+                data.map(d => {
+                    document.getElementById("grlist").innerHTML +=
+                        ` 
+                    
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                    ${d.name}
+                   <button onclick="getProgress('${d._id}','${d.group}','${d.name}')">View Progress</button>
+                 
+                </li>
+                    `})
+                console.log(data)
+
+            }
+        })
 }
+
+
+function getProgress(user, group, name) {
+
+    axios.post(`${url}user/progress`, {
+        user, group
+    })
+        .then(res => {
+            console.log(res)
+            if (res.data.success) {
+                total = 0
+                newarr = res.data.event
+                document.getElementById("grlist").innerHTML = `
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                ${name}
+                <span class="badge badge-primary badge-pill">Mala</span>         
+            </li>
+        `
+                newarr.map(d => {
+                    total += d.cumulative ? d.cumulative : 0
+                    document.getElementById("grlist").innerHTML +=
+                        ` <li class="list-group-item d-flex justify-content-between align-items-center">
+                ${d.sankalp.name}
+                <span class="badge badge-primary badge-pill">${d.cumulative ? d.cumulative : 0}</span>
+               
+            </li>
+                `
+
+                })
+                document.getElementById("grlist").innerHTML += `<li class="list-group-item d-flex justify-content-between align-items-center">
+            TOTAL
+              <span class="badge badge-primary badge-pill">${total}</span>
+             
+          </li>
+          <button onclick="getMembers()">View Members</button>
+          `
+                console.log(newarr)
+
+            }
+        })
+}
+
 
 function logout() {
     localStorage.clear();

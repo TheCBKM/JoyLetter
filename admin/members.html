@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +14,6 @@
         id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/dashboard.js"></script>
@@ -93,6 +91,7 @@
         }
 
         /*----------------page-wrapper----------------*/
+
         .page-wrapper {
             height: 100vh;
         }
@@ -110,6 +109,7 @@
         }
 
         /*----------------toggeled sidebar----------------*/
+
         .page-wrapper.toggled .sidebar-wrapper {
             left: 0px;
         }
@@ -135,6 +135,7 @@
         }
 
         /*----------------sidebar-wrapper----------------*/
+
         .sidebar-wrapper {
             width: 260px;
             height: 100%;
@@ -156,6 +157,7 @@
         }
 
         /*----------------sidebar-content----------------*/
+
         .sidebar-content {
             max-height: calc(100% - 30px);
             height: calc(100% - 30px);
@@ -168,6 +170,7 @@
         }
 
         /*--------------------sidebar-brand----------------------*/
+
         .sidebar-wrapper .sidebar-brand {
             padding: 10px 20px;
             display: flex;
@@ -186,6 +189,7 @@
         }
 
         /*--------------------sidebar-header----------------------*/
+
         .sidebar-wrapper .sidebar-header {
             padding: 20px;
             overflow: hidden;
@@ -230,11 +234,13 @@
         }
 
         /*-----------------------sidebar-search------------------------*/
+
         .sidebar-wrapper .sidebar-search>div {
             padding: 10px 20px;
         }
 
         /*----------------------sidebar-menu-------------------------*/
+
         .sidebar-wrapper .sidebar-menu {
             padding-bottom: 10px;
         }
@@ -333,6 +339,7 @@
         }
 
         /*--------------------------side-footer------------------------------*/
+
         .sidebar-footer {
             position: absolute;
             width: 100%;
@@ -377,6 +384,7 @@
         }
 
         /*--------------------------page-content-----------------------------*/
+
         .page-wrapper .page-content {
             display: inline-block;
             width: 100%;
@@ -393,6 +401,7 @@
         }
 
         /*------scroll bar---------------------*/
+
         ::-webkit-scrollbar {
             width: 5px;
             height: 7px;
@@ -435,7 +444,9 @@
             background: transparent;
         }
 
+
         /*-----------------------------chiller-theme-------------------------------------------------*/
+
         .chiller-theme .sidebar-wrapper {
             background: #31353D;
         }
@@ -552,31 +563,10 @@
                 transform: rotate(360deg);
             }
         }
-
-        table {
-            border-collapse: collapse;
-            border-spacing: 0;
-            width: 100%;
-            border: 1px solid #ddd;
-        }
-
-        th,
-        td {
-            text-align: center;
-            padding: 16px;
-        }
-
-        th:first-child,
-        td:first-child {
-            text-align: left;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2
-        }
     </style>
     <script>
         jQuery(function ($) {
+
             $(".sidebar-dropdown > a").click(function () {
                 $(".sidebar-submenu").slideUp(200);
                 if (
@@ -598,17 +588,22 @@
                         .addClass("active");
                 }
             });
+
             $("#close-sidebar").click(function () {
                 $(".page-wrapper").removeClass("toggled");
             });
             $("#show-sidebar").click(function () {
                 $(".page-wrapper").addClass("toggled");
             });
+
+
+
+
         });
     </script>
 </head>
 
-<body onload="getGrLea()">
+<body onload="getMembers()">
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
             <i class="fas fa-bars"></i>
@@ -689,6 +684,7 @@
                                 <ul>
                                     <li>
                                         <a href="#">Products
+
                                         </a>
                                     </li>
                                     <li>
@@ -831,36 +827,13 @@
         <main class="page-content">
             <div id="main" class="container-fluid">
                 <h3>
-                    Group Leaderboard
-                </h3>
-                <h4>
-                    <script>document.write(getStorage('sankalp').name)</script>
-                </h4>
-                <table>
-                    <tbody id="wow">
-                        <tr>
-                            <!-- <th>Rank</th> -->
+Members                </h3>
 
-                            <th style="width:50%">Name</th>
-                            <th>Mala </th>
-                            <th>Happy</th>
-                            <th>Pages</th>
-
-                        </tr>
-
-                    </tbody>
-                </table>
                 <ul id="grlist" class="list-group">
-                    <center>
-                        <div class="lds-ring">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
-                    </center>
+                   <center>     <div class="lds-ring"><div></div><div></div><div></div><div></div></div></center>
+                  
 
-                
+                </ul>
 
         </main>
         <!-- page-content" -->
@@ -873,9 +846,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script>
 
-    </script>
 </body>
 
 </html>
