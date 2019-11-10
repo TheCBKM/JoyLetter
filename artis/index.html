@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
-    <title>Dashboard</title>
+    <title>joy-letter</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -15,10 +15,10 @@
         id="bootstrap-css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="js/utils.js"></script>
-    <script src="js/dashboard.js"></script>
+    <script src="js/util.js"></script>
     <style>
         @keyframes swing {
             0% {
@@ -610,14 +610,24 @@
 
         });
     </script>
+    <style>
+        @font-face {
+            font-family: kruti dev;
+            src: url("k010.TTF") format("truetype");
+        }
+
+        .hindi {
+            font-family: kruti dev;
+            font-size: 25px;
+        }
+    </style>
 </head>
 
-<body>
+<body onload="getdata() ">
     <div class="page-wrapper chiller-theme toggled">
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
             <i class="fas fa-bars"></i>
-        </a><br><br>
-
+        </a>
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <div class="sidebar-brand">
@@ -773,45 +783,44 @@
                             <span>Extra</span>
                         </li> -->
                         <li>
-                            <a href="dashboard.html">
+                            <a href="../client/dashboard.html">
                                 <i class="fa fa-book"></i>
                                 <span>Enter Daily Jap </span>
                                 <span class="badge badge-pill badge-primary">New</span>
                             </a>
                         </li>
                         <li>
-                            <a href="grleaderboard.html">
-                                <i class="fa fa-trophy"></i>
+                            <a href="../client/grleaderboard.html">
+                                <i class="fa fa-calendar"></i>
                                 <span>Group Leaderboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="grpleaderboard.html">
-                                <i class="fa fa-trophy"></i>
+                            <a href="../client/grpleaderboard.html">
+                                <i class="fa fa-folder"></i>
                                 <span>Global Leaderboard</span>
                             </a>
                         </li>
                         <li>
-                            <a href="progress.html">
-                                <i class="fa  fa-folder" aria-hidden="true"></i>
-
+                            <a href="../client/progress.html">
+                                <i class="fa fa-folder"></i>
                                 <span>Your Progress</span>
                             </a>
                         </li>
                         <li>
                             <a href="../joyletter/index.html">
-                                <i class="fa fa-book"></i>
+                                <i class="fa fa-folder"></i>
                                 <span>Joy Letter</span>
                             </a>
                         </li>
                         <li>
-                            <a href="ejap.html">
+                            <a href="../client/ejap.html">
                                 <i class="fa fa-folder"></i>
                                 <span>E-Jap</span>
                             </a>
                         </li>
                         <li>
-                            <a href="../artis/index.html">
+                            <a href="index.html">
                                 <i class="fa fa-folder"></i>
                                 <span>Arti/Bhajans</span>
                             </a>
@@ -841,109 +850,21 @@
         </nav>
 
         <!-- sidebar-wrapper  -->
-        <script>document.write(getStorage("lang") == 0 ? '<button type="button" onclick="switchLang()" class="btn btn-outline-warning btn-sm">English</button><br>' : '<button type="button" onclick="switchLang()" class="btn btn-outline-primary btn-sm">हिंदी</button><br>')</script>
-
         <main class="page-content">
             <div id="main" class="container-fluid">
-                <div class="form-group">
-                    <label for="exampleInputEmail1">
-                        <script>document.write(getStorage("lang") == 0 ? "‌माला संख्या" : "Today's Mala")</script>
-                        </label>
-                    <input onkeyup="calculate()" type="number" class="form-control" id="mala"
-                        aria-describedby="emailHelp" placeholder="Mala">
-                    <small id="emailHelp" class="form-text text-muted">
-                        <script>document.write(getStorage("lang") == 0 ? "‌‌कृपया आज की माला लिखें" : "Please Add your jap count for the day")</script>
-                    </small>
-                    <script>
-                        document.getElementById("mala").value = getStorage('finalJap') ? `${Math.trunc(getStorage("finalJap") / 108)}` : 0</script>
-                </div>
-                <div class="form-group">
-                    <label onclick="calculate()" for="exampleInputPassword1">
-                        <script>document.write(getStorage("lang") == 0 ? "‌‌कुल" : "Total")</script></label>
-                    <input onclick="calculate()" disabled="true" class="form-control" id="totalcount" placeholder="">
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">
-                        <script>document.write(getStorage("lang") == 0 ? "‌कृपया आज के आनंद का मूल्यांकन  करें" : "Please Rate your Happiness")</script>
-                    </label>
-                    <div class="rate">
-                        <input onclick="setStar(5)" type="radio" id="star5" name="rate" value="5" />
-                        <label for="star5" title="text">5 stars</label>
-                        <input onclick="setStar(4)" type="radio" id="star4" name="rate" value="4" />
-                        <label for="star4" title="text">4 stars</label>
-                        <input onclick="setStar(3)" type="radio" id="star3" name="rate" value="3" />
-                        <label for="star3" title="text">3 stars</label>
-                        <input onclick="setStar(2)" type="radio" id="star2" name="rate" value="2" />
-                        <label for="star2" title="text">2 stars</label>
-                        <input onclick="setStar(1)" type="radio" id="star1" name="rate" value="1" />
-                        <label for="star1" title="text">1 star</label>
-                    </div>
-                    <small id="emailHelp" class="form-text text-muted"><b>
-                            <script>document.write(getStorage("lang") == 0 ? "‌इमानदारी से किया गया स्वयं का मूल्यांकन ही आपको चिरस्थायी आनंद के लिये मदतगार साबित होगा" : "Please rate honestly to hep you become permanantly Happy !")</script>
-                        </b></small>
-                </div>
 
-                <div class="form-group">
-                    <label for="exampleInputEmail1">
-                        <script>document.write(getStorage("lang") == 0 ? "‌‌क्या आज आपने सुखसंवाद (औ र कोई संबंधित पुस्तक) का अभ्यास किया? <br> कृपया कुल पृष्ठ इंगित करें" : "Have you gone through Sukh-Samwad today (any other book ) ? <br>if yes give page count. ")</script>
-                    </label>
-                    <input onkeyup="calculate()" value="0" type="number" class="form-control" id="page"
-                        aria-describedby="emailHelp" placeholder="pagecount">
-                    <small id="emailHelp" class="form-text text-muted"><b>
-                            <script>document.write(getStorage("lang") == 0 ? "‌‌कृपया ध्यान दें की पुस्तकों का पठन विचारों को नई दिशा एवं इसलिये निश्चित आनंद की ओर ले जाते हैं." : "Reading helps in changing thought process & improve happiness .")</script>
-                        </b></small>
-                </div>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">
-                    ADD
-                </button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-
-                            <div class="modal-body">
-                                Is this A new count to add or total for today <br>
-
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" onclick="sendJap()" class="btn btn-primary"
-                                    data-dismiss="modal">Add</button>
-                                <button type="submit" onclick="todayJap()" class="btn btn-primary"
-                                    data-dismiss="modal">Total</button>
-
-                            </div>
-                        </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title"> नामस्मरणी श्रीरामाच्या भक्त मेळा रंगला ।
+                        </h4>
+                        <p class="card-text">
+                        </p>
+                        <center> <a href="nam.html" class="btn btn-primary">See</a></center>
                     </div>
                 </div>
-
 
             </div>
-            <!-- Button trigger modal -->
-            <button type="button" hidden id="versionbtn" class="btn btn-primary" data-toggle="modal"
-                data-target="#versionmodal">
-                Launch demo modal
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="versionmodal" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-
-                        <div class="modal-body">
-                            <div id="versionmessage"></div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </main>
         <!-- page-content" -->
     </div>
@@ -955,14 +876,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-    <script>axios.post(`${url}version`, { version }).then(res => {
-            console.log(res.data)
-            if (res.data.sucess) {
-                document.getElementById('versionmessage').innerHTML = res.data.message
-                document.getElementById('versionbtn').click()
-            }
-        })
-    </script>
+
 </body>
 
 </html>
