@@ -1,6 +1,6 @@
-// const url='https://joyletterapp.herokuapp.com/'
+const url='https://joyletterapp.herokuapp.com/'
 
-const url = 'http://localhost:5000/'
+// const url = 'http://localhost:5000/'
 
 
 const getStorage = (item) => (JSON.parse(localStorage.getItem(item)))
