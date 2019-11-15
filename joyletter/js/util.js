@@ -124,10 +124,7 @@ function load() {
     document.getElementById("desc").innerHTML += `
     <div color="brown" align="center"> 
         ${arr[1]}   ${arr[2]} 
-        <button class="btn btn-secondary" style="float:left"; 
-        onclick="window.location.href='help.html'">
-        <i class="fa fa-question-circle fa-x" "></i>
-        </button>
+       
     <button class="btn btn-primary btnshare"
     onclick="share()">
     <i class="fa fa-share-alt" aria-hidden="true"></i>

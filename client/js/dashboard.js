@@ -62,6 +62,7 @@ function sendJap() {
 }
 
 function getGrLea() {
+    total = 0;
     axios.post(`${url}user/lead`, {
         sankalp: getStorage('sankalp')._id
     })
@@ -81,6 +82,7 @@ function getGrLea() {
                 //     </li>`
                 document.getElementById("grlist").innerHTML = ""
                 newarr.map((d, i) => {
+                    total += d.cumulative
                     if (d.user._id == getStorage("user")._id) {
                         document.getElementById("wow").innerHTML += `  <tr style="background-color:black; color:white">
                    
@@ -110,6 +112,8 @@ function getGrLea() {
                     // </li>
                     //     `
                 })
+                document.getElementById("remaining").innerHTML = `Remaining:- ${Number(getStorage('sankalp').target) - Number(total)}`
+
                 console.log(newarr)
 
             }
@@ -263,7 +267,7 @@ function logout() {
 
 
 function switchLang() {
-    setStorage("lang", getStorage("lang") == 0 ? 1 : 0)
+    setStorage("lang", getStorage("lang") == 0 ? 2 : getStorage("lang") == 2 ? 1 : 0)
     window.location.reload()
 }
 check()

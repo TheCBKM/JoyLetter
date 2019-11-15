@@ -841,31 +841,31 @@
         </nav>
 
         <!-- sidebar-wrapper  -->
-        <script>document.write(getStorage("lang") == 0 ? '<button type="button" onclick="switchLang()" class="btn btn-outline-warning btn-sm">English</button><br>' : '<button type="button" onclick="switchLang()" class="btn btn-outline-primary btn-sm">हिंदी</button><br>')</script>
+        <script>document.write(getStorage("lang") == 0 ? '<button type="button" onclick="switchLang()" class="btn btn-outline-danger btn-sm">मराठी</button><br>'  : getStorage("lang") == 2 ? '<button type="button" onclick="switchLang()" class="btn btn-outline-primary btn-sm">English</button><br>' : '<button type="button" onclick="switchLang()" class="btn btn-outline-warning btn-sm">हिंदी</button><br>')</script>
 
         <main class="page-content">
             <div id="main" class="container-fluid">
                 <div class="form-group">
                     <label for="exampleInputEmail1">
-                        <script>document.write(getStorage("lang") == 0 ? "‌माला संख्या" : "Today's Mala")</script>
-                        </label>
+                        <script>document.write(getStorage("lang") == 0 ? "‌माला संख्या" : getStorage("lang") == 2 ? "आजची जपसंख्या" : "Today's Mala")</script>
+                    </label>
                     <input onkeyup="calculate()" type="number" class="form-control" id="mala"
                         aria-describedby="emailHelp" placeholder="Mala">
                     <small id="emailHelp" class="form-text text-muted">
-                        <script>document.write(getStorage("lang") == 0 ? "‌‌कृपया आज की माला लिखें" : "Please Add your jap count for the day")</script>
+                        <script>document.write(getStorage("lang") == 0 ? "‌‌कृपया आज की माला लिखें" : getStorage("lang") == 2 ? " कृपया आपल्या रोजच्या जपाची नोंद करावी" : "Please Add your jap count for the day")</script>
                     </small>
                     <script>
                         document.getElementById("mala").value = getStorage('finalJap') ? `${Math.trunc(getStorage("finalJap") / 108)}` : 0</script>
                 </div>
                 <div class="form-group">
                     <label onclick="calculate()" for="exampleInputPassword1">
-                        <script>document.write(getStorage("lang") == 0 ? "‌‌कुल" : "Total")</script></label>
+                        <script>document.write(getStorage("lang") == 0 ? "‌‌कुल" :getStorage("lang") == 2 ? "एकूण जपसांख्या": "Total")</script></label>
                     <input onclick="calculate()" disabled="true" class="form-control" id="totalcount" placeholder="">
                 </div>
                 <br>
                 <div class="form-group">
                     <label for="exampleInputEmail1">
-                        <script>document.write(getStorage("lang") == 0 ? "‌कृपया आज के आनंद का मूल्यांकन  करें" : "Please Rate your Happiness")</script>
+                        <script>document.write(getStorage("lang") == 0 ? "‌कृपया आज के आनंद का मूल्यांकन  करें" :getStorage("lang") == 2 ?"कृपया आजच्या आनंदाचे मूल्यांकन ठरवा" : "Please Rate your Happiness")</script>
                     </label>
                     <div class="rate">
                         <input onclick="setStar(5)" type="radio" id="star5" name="rate" value="5" />
@@ -880,18 +880,18 @@
                         <label for="star1" title="text">1 star</label>
                     </div>
                     <small id="emailHelp" class="form-text text-muted"><b>
-                            <script>document.write(getStorage("lang") == 0 ? "‌इमानदारी से किया गया स्वयं का मूल्यांकन ही आपको चिरस्थायी आनंद के लिये मदतगार साबित होगा" : "Please rate honestly to hep you become permanantly Happy !")</script>
+                            <script>document.write(getStorage("lang") == 0 ? "‌इमानदारी से किया गया स्वयं का मूल्यांकन ही आपको चिरस्थायी आनंद के लिये मदतगार साबित होगा" :getStorage("lang") == 2 ?"कृपया स्वतःशी प्रामाणिक राहून नोंदणी करावी, तसे केल्यास निश्चितच कायमस्वरूपी आनंद मिळेल": "Please rate honestly to hep you become permanantly Happy !")</script>
                         </b></small>
                 </div>
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">
-                        <script>document.write(getStorage("lang") == 0 ? "‌‌क्या आज आपने सुखसंवाद (औ र कोई संबंधित पुस्तक) का अभ्यास किया? <br> कृपया कुल पृष्ठ इंगित करें" : "Have you gone through Sukh-Samwad today (any other book ) ? <br>if yes give page count. ")</script>
+                        <script>document.write(getStorage("lang") == 0 ? "‌‌क्या आज आपने सुखसंवाद (औ र कोई संबंधित पुस्तक) का अभ्यास किया? <br> कृपया कुल पृष्ठ इंगित करें" :getStorage("lang") == 2 ?"तुम्ही आज सुखसंवाद ( किंवा तत्सम एखाद्या पुस्तकाचा) अभ्यास केला का?<br>जर केला असेल तर पृष्ठ संख्या कळवा": "Have you gone through Sukh-Samwad today (any other book ) ? <br>if yes give page count. ")</script>
                     </label>
                     <input onkeyup="calculate()" value="0" type="number" class="form-control" id="page"
                         aria-describedby="emailHelp" placeholder="pagecount">
                     <small id="emailHelp" class="form-text text-muted"><b>
-                            <script>document.write(getStorage("lang") == 0 ? "‌‌कृपया ध्यान दें की पुस्तकों का पठन विचारों को नई दिशा एवं इसलिये निश्चित आनंद की ओर ले जाते हैं." : "Reading helps in changing thought process & improve happiness .")</script>
+                            <script>document.write(getStorage("lang") == 0 ? "‌‌कृपया ध्यान दें की पुस्तकों का पठन विचारों को नई दिशा एवं इसलिये निश्चित आनंद की ओर ले जाते हैं." :getStorage("lang") == 2 ?"वाचनामुळे आपल्या विचारांना योग्य दिशा मिळेल आणि आनंद वाढीस लागतो.": "Reading helps in changing thought process & improve happiness .")</script>
                         </b></small>
                 </div>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">

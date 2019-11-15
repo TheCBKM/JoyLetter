@@ -163,7 +163,8 @@ function addSankalp() {
     if (document.getElementById('sname').value)
         axios.post(`${url}sankalp/save`, {
             name: document.getElementById('sname').value,
-            group: getStorage('admin').group
+            group: getStorage('admin').group,
+            target: document.getElementById('target').value
         }).then(res => {
             console.log(res.data)
             if (res.data.success) {

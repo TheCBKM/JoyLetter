@@ -574,6 +574,13 @@
         tr:nth-child(even) {
             background-color: #f2f2f2
         }
+
+        blink {
+            color: #1c87c9;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
     </style>
     <script>
         jQuery(function ($) {
@@ -837,11 +844,17 @@
         <main class="page-content">
             <div id="main" class="container-fluid">
                 <h3>
-                    Group Leaderboard
+                     Group Leaderboard
                 </h3>
-                <h4>
-                    <script>document.write(getStorage('sankalp').name)</script>
-                </h4>
+                <center>
+                    <h4>
+                        <script>document.write(getStorage('sankalp').name)</script>
+                        <blink>
+                            <div id="remaining"></div>
+                        </blink>
+
+                    </h4>
+                </center>
                 <table>
                     <tbody id="wow">
                         <tr>
