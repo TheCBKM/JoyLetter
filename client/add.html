@@ -1,0 +1,730 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+
+    d = [
+        {
+            "Sr.No.": "1",
+            "name": "Aalshi Family",
+            "phone": "9892616151",
+            "count": "722"
+        },
+        {
+            "Sr.No.": "2",
+            "name": "Aarti Torvi",
+            "phone": "9822181390",
+            "count": "49"
+        },
+        {
+            "Sr.No.": "3",
+            "name": "Aasha Galgali",
+            "phone": "9920256067",
+            "count": "1305"
+        },
+        {
+            "Sr.No.": "4",
+            "name": "Aditi Sant",
+            "phone": "9561721324",
+            "count": "1529"
+        },
+        {
+            "Sr.No.": "5",
+            "name": "Aditya Murar",
+            "phone": "9890269940",
+            "count": "10"
+        },
+        {
+            "Sr.No.": "6",
+            "name": "Advait Deshpande",
+            "phone": "9673668674",
+            "count": "28"
+        },
+        {
+            "Sr.No.": "7",
+            "name": "Ajay Kagokar",
+            "phone": "8624932162",
+            "count": "33"
+        },
+        {
+            "Sr.No.": "8",
+            "name": "Amol Kulkarni",
+            "phone": "8806327373",
+            "count": "1211"
+        },
+        {
+            "Sr.No.": "9",
+            "name": "Anagha Patil",
+            "phone": "9511850439",
+            "count": "59"
+        },
+        {
+            "Sr.No.": "10",
+            "name": "Anand Jambhorkar",
+            "phone": "9767847054",
+            "count": "592"
+        },
+        {
+            "Sr.No.": "11",
+            "name": "Aniket Kulkarni",
+            "phone": "9881237418",
+            "count": "89"
+        },
+        {
+            "Sr.No.": "12",
+            "name": "Anjana Disale",
+            "phone": "9594908441",
+            "count": "346"
+        },
+        {
+            "Sr.No.": "13",
+            "name": "Aparna Dharwadkar",
+            "phone": "9819870772",
+            "count": "2210"
+        },
+        {
+            "Sr.No.": "115",
+            "name": "Aparna Kulkarni",
+            "phone": "8275204450",
+            "count": "88"
+        },
+        {
+            "Sr.No.": "14",
+            "name": "Aparna Sukenkar",
+            "phone": "8862043047",
+            "count": "46"
+        },
+        {
+            "Sr.No.": "15",
+            "name": "Asawari Kulkarni",
+            "phone": "9561721324",
+            "count": "2070"
+        },
+        {
+            "Sr.No.": "16",
+            "name": "Asha Kanade",
+            "phone": "9970150617",
+            "count": "535"
+        },
+        {
+            "name": "Rupali Bhosale",
+            "phone": "9145383519",
+            "count": "2"
+        },
+        {
+            "Sr.No.": "17",
+            "name": "Ashutosh Kulkarni",
+            "phone": "9158926951",
+            "count": "2870"
+        },
+        {
+            "Sr.No.": "18",
+            "name": "Bhagyashree Kulhalli",
+            "phone": "9096941707",
+            "count": "248"
+        },
+        {
+            "Sr.No.": "19",
+            "name": "Chhya Chandolikar",
+            "phone": "9422692758",
+            "count": "1163"
+        },
+        {
+            "Sr.No.": "20",
+            "name": "Chinmay Ghadge",
+            "phone": "7720036695",
+            "count": "5"
+        },
+        {
+            "Sr.No.": "21",
+            "name": "Darshan Deshpande",
+            "phone": "9987588108",
+            "count": "225"
+        },
+        {
+            "Sr.No.": "22",
+            "name": "Deepak Kolhar",
+            "phone": "9764003929",
+            "count": "17"
+        },
+        {
+            "Sr.No.": "23",
+            "name": "Deepali Hemade",
+            "phone": "9922886749",
+            "count": "224"
+        },
+        {
+            "Sr.No.": "24",
+            "name": "Deepika Patil",
+            "phone": "7972193621",
+            "count": "129"
+        },
+        {
+            "Sr.No.": "25",
+            "name": "Deshpande Family",
+            "phone": "8454842203",
+            "count": "1460"
+        },
+        {
+            "Sr.No.": "26",
+            "name": "Deshpande Kaku -Alandi",
+            "phone": "9860086843",
+            "count": "155"
+        },
+        {
+            "Sr.No.": "27",
+            "name": "Dharmadhikari Madam",
+            "phone": "9850827285",
+            "count": "48"
+        },
+        {
+            "Sr.No.": "28",
+            "name": "Digambar Kadam",
+            "phone": "9969373305",
+            "count": "967"
+        },
+        {
+            "Sr.No.": "29",
+            "name": "Hemlata Kathare",
+            "phone": "9922134735",
+            "count": "778"
+        },
+        {
+            "Sr.No.": "30",
+            "name": "Inamdar Aaji",
+            "phone": "9561721324",
+            "count": "265"
+        },
+        {
+            "Sr.No.": "31",
+            "name": "Jaiswal Kaku",
+            "phone": "9970512842",
+            "count": "769"
+        },
+        {
+            "Sr.No.": "32",
+            "name": "Janhavi Joshi",
+            "phone": "9979879406",
+            "count": "145"
+        },
+        {
+            "Sr.No.": "33",
+            "name": "Jyoti Chavan",
+            "phone": "9819331335",
+            "count": "106"
+        },
+        {
+            "Sr.No.": "116",
+            "name": "Kasvekar",
+            "phone": "9420727212",
+            "count": "6"
+        },
+        {
+            "Sr.No.": "34",
+            "name": "Kirti Bhalerao",
+            "phone": "7875383300",
+            "count": "509"
+        },
+        {
+            "Sr.No.": "35",
+            "name": "Koshti Kaku",
+            "phone": "9158926951",
+            "count": "2036"
+        },
+        {
+            "Sr.No.": "36",
+            "name": "Kshama Lale",
+            "phone": "8600716294",
+            "count": "557"
+        },
+        {
+            "Sr.No.": "37",
+            "name": "Kupastha kaku",
+            "phone": "9890468297",
+            "count": "265"
+        },
+        {
+            "name": "Manish Sant",
+            "phone": "16077457207",
+            "count": "21"
+        },
+        {
+            "Sr.No.": "38",
+            "name": "Manisha Erande",
+            "phone": "9890063018",
+            "count": "125"
+        },
+        {
+            "Sr.No.": "39",
+            "name": "Manisha Ganmukhi",
+            "phone": "7888002673",
+            "count": "0"
+        },
+        {
+            "Sr.No.": "40",
+            "name": "Meenakshi Divekar",
+            "phone": "9021211225",
+            "count": "450"
+        },
+        {
+            "Sr.No.": "41",
+            "name": "Milind Gapchup",
+            "phone": "9158984085",
+            "count": "436"
+        },
+        {
+            "Sr.No.": "42",
+            "name": "Mrunalini Kulkarni",
+            "phone": "9158926951",
+            "count": "2153"
+        },
+        {
+            "Sr.No.": "43",
+            "name": "Mukta Kulkarni",
+            "phone": "7875685543",
+            "count": "52"
+        },
+        {
+            "Sr.No.": "44",
+            "name": "Narendra Sant",
+            "phone": "9406617346",
+            "count": "2362"
+        },
+        {
+            "Sr.No.": "45",
+            "name": "Neelima Ranjanikar",
+            "phone": "9420727212",
+            "count": "87"
+        },
+        {
+            "Sr.No.": "46",
+            "name": "Nilima Joshi",
+            "phone": "9689890378",
+            "count": "160"
+        },
+        {
+            "Sr.No.": "47",
+            "name": "Nitin Dharwadkar",
+            "phone": "9819849488",
+            "count": "4090"
+        },
+        {
+            "Sr.No.": "48",
+            "name": "Nupur Bhandarkar",
+            "phone": "7045592456",
+            "count": "128"
+        },
+        {
+            "Sr.No.": "49",
+            "name": "Omkar Gurjar",
+            "phone": "9890942593",
+            "count": "33"
+        },
+        {
+            "Sr.No.": "50",
+            "name": "Pallavi Girdhar",
+            "phone": "8380072601",
+            "count": "119"
+        },
+        {
+            "Sr.No.": "51",
+            "name": "Parag Bhanose",
+            "phone": "9689890379",
+            "count": "1397"
+        },
+        {
+            "Sr.No.": "52",
+            "name": "Pooja Hambarade",
+            "phone": "9763077700",
+            "count": "5"
+        },
+        {
+            "Sr.No.": "53",
+            "name": "Poonam Jadhav",
+            "phone": "8308852508",
+            "count": "34"
+        },
+        {
+            "Sr.No.": "54",
+            "name": "Prachi Jambhorkar",
+            "phone": "9922427353",
+            "count": "2251"
+        },
+        {
+            "Sr.No.": "55",
+            "name": "Pradnya\nBopardikar",
+            "phone": "9763827424",
+            "count": "53"
+        },
+        {
+            "Sr.No.": "56",
+            "name": "Pranjali Dhaygude",
+            "phone": "8888747838",
+            "count": "105"
+        },
+        {
+            "Sr.No.": "57",
+            "name": "Prasad Joshi",
+            "phone": "9890023747",
+            "count": "120"
+        },
+        {
+            "Sr.No.": "58",
+            "name": "Pratibha \nKakade",
+            "phone": "9890238547",
+            "count": "408"
+        },
+        {
+            "Sr.No.": "59",
+            "name": "Pratiksha Pethe",
+            "phone": "9175427554",
+            "count": "1000"
+        },
+        {
+            "Sr.No.": "60",
+            "name": "Preeti Bhanose",
+            "phone": "9689890378",
+            "count": "917"
+        },
+        {
+            "Sr.No.": "61",
+            "name": "Radhika Mulay",
+            "phone": "8975555779",
+            "count": "245"
+        },
+        {
+            "Sr.No.": "62",
+            "name": "Ramesh Jambhorkar",
+            "phone": "9922427353",
+            "count": "2430"
+        },
+        {
+            "Sr.No.": "63",
+            "name": "Rashmi Murar",
+            "phone": "9975537290",
+            "count": "10"
+        },
+        {
+            "Sr.No.": "64",
+            "name": "Ratnaprabha Tapkir",
+            "count": "5"
+        },
+        {
+            "Sr.No.": "65",
+            "name": "Ravindra Kulkarni",
+            "phone": "9158926951",
+            "count": "6790"
+        },
+        {
+            "Sr.No.": "66",
+            "name": "Renuka Kulkarni",
+            "phone": "9518786415",
+            "count": "141"
+        },
+        {
+            "Sr.No.": "67",
+            "name": "Renuka Naigaonkar",
+            "phone": "9623731174",
+            "count": "667"
+        },
+        {
+            "Sr.No.": "68",
+            "name": "Rishabh Singh",
+            "phone": "8237382344",
+            "count": "0"
+        },
+        {
+            "Sr.No.": "69",
+            "name": "Rutvik Singh",
+            "phone": "8668307091",
+            "count": "0"
+        },
+        {
+            "Sr.No.": "70",
+            "name": "Sakshi Muley",
+            "phone": "7721015591",
+            "count": "898"
+        },
+        {
+            "Sr.No.": "71",
+            "name": "Salan Kaku",
+            "phone": "7721015591",
+            "count": "5"
+        },
+        {
+            "Sr.No.": "72",
+            "name": "Sangita Joshi",
+            "phone": "8698960333",
+            "count": "73"
+        },
+        {
+            "Sr.No.": "73",
+            "name": "Sanjay Akolkar",
+            "phone": "9422724433",
+            "count": "420"
+        },
+        {
+            "Sr.No.": "74",
+            "name": "Santosh Kulkarni",
+            "phone": "7588295298",
+            "count": "21"
+        },
+        {
+            "Sr.No.": "75",
+            "name": "Sarita Deshpande",
+            "phone": "8149561946",
+            "count": "260"
+        },
+        {
+            "Sr.No.": "76",
+            "name": "Saroj Jangle",
+            "phone": "8237860300",
+            "count": "2307"
+        },
+        {
+            "Sr.No.": "77",
+            "name": "Shantabai Jadhav",
+            "phone": "8975769056",
+            "count": "411"
+        },
+        {
+            "Sr.No.": "78",
+            "name": "Shashikala Kadam",
+            "phone": "9594208804",
+            "count": "1696"
+        },
+        {
+            "Sr.No.": "79",
+            "name": "Shashikant Muley",
+            "phone": "7721015591",
+            "count": "1095"
+        },
+        {
+            "Sr.No.": "80",
+            "name": "Shaunak Mayee",
+            "phone": "9420201369",
+            "count": "27"
+        },
+        {
+            "Sr.No.": "81",
+            "name": "Sheetal Tupe",
+            "phone": "7722091013",
+            "count": "4"
+        },
+        {
+            "Sr.No.": "82",
+            "name": "Shinde Aaji",
+            "phone": "8830713210",
+            "count": "3987"
+        },
+        {
+            "Sr.No.": "83",
+            "name": "Shobha Javalkar",
+            "phone": "9764500041",
+            "count": "352"
+        },
+        {
+            "Sr.No.": "84",
+            "name": "Shraddha Gapchup",
+            "phone": "7387074266",
+            "count": "64"
+        },
+        {
+            "Sr.No.": "85",
+            "name": "Shubham Bagdare",
+            "phone": "8959794320",
+            "count": "597"
+        },
+        {
+            "Sr.No.": "86",
+            "name": "Smita Gapchup",
+            "phone": "9765492653",
+            "count": "980"
+        },
+        {
+            "Sr.No.": "87",
+            "name": "Sneha S.Kulkarni",
+            "phone": "9850573730",
+            "count": "26"
+        },
+        {
+            "Sr.No.": "88",
+            "name": "Snehal Deshpande",
+            "phone": "8237125108",
+            "count": "44"
+        },
+        {
+            "Sr.No.": "89",
+            "name": "Snehal Kulkarni",
+            "phone": "9561003122",
+            "count": "337"
+        },
+        {
+            "Sr.No.": "90",
+            "name": "Subhash Badve",
+            "phone": "9158926951",
+            "count": "2671"
+        },
+        {
+            "Sr.No.": "91",
+            "name": "Suhasini Tambolkar",
+            "phone": "9403983186",
+            "count": "0"
+        },
+        {
+            "Sr.No.": "92",
+            "name": "Sulbha Naik",
+            "phone": "9049819606",
+            "count": "297"
+        },
+        {
+            "Sr.No.": "93",
+            "name": "Sulbha Sant",
+            "phone": "9406622324",
+            "count": "1451"
+        },
+        {
+            "Sr.No.": "94",
+            "name": "Suman Jain",
+            "phone": "9561721324",
+            "count": "196"
+        },
+        {
+            "Sr.No.": "95",
+            "name": "Sunil Jangale",
+            "phone": "7403571999",
+            "count": "15"
+        },
+        {
+            "Sr.No.": "96",
+            "name": "Suresh Naik",
+            "phone": "9823485698",
+            "count": "399"
+        },
+        {
+            "Sr.No.": "97",
+            "name": "Swapna Gosavi",
+            "phone": "7774002827",
+            "count": "58"
+        },
+        {
+            "Sr.No.": "98",
+            "name": "Thakar Kaku",
+            "phone": "8779662785",
+            "count": "53"
+        },
+        {
+            "Sr.No.": "99",
+            "name": "Tillu Aaji",
+            "phone": "9130781316",
+            "count": "538"
+        },
+        {
+            "Sr.No.": "100",
+            "name": "Torvi Aaji",
+            "phone": "9561721324",
+            "count": "780"
+        },
+        {
+            "Sr.No.": "101",
+            "name": "Usha Muley",
+            "phone": "7721015591",
+            "count": "2900"
+        },
+        {
+            "Sr.No.": "102",
+            "name": "Vaishali Nalawade",
+            "phone": "9970524680",
+            "count": "80"
+        },
+        {
+            "Sr.No.": "103",
+            "name": "Varad Babar",
+            "phone": "9403296769",
+            "count": "483"
+        },
+        {
+            "Sr.No.": "104",
+            "name": "Veena Akolkar",
+            "phone": "9860023224",
+            "count": "5"
+        },
+        {
+            "Sr.No.": "105",
+            "name": "Vidya Kulkarni",
+            "phone": "9011999223",
+            "count": "6075"
+        },
+        {
+            "Sr.No.": "106",
+            "name": "Vidya Maitra Kaku",
+            "phone": "9028488067",
+            "count": "1150"
+        },
+        {
+            "Sr.No.": "107",
+            "name": "Vinayak Joshi",
+            "phone": "9011676267",
+            "count": "262"
+        },
+        {
+            "Sr.No.": "108",
+            "name": "Vinod Maitra Kaka",
+            "phone": "9028013384",
+            "count": "2138"
+        },
+        {
+            "Sr.No.": "109",
+            "name": "Viraja Kulkarni",
+            "phone": "9604853497",
+            "count": "31"
+        },
+        {
+            "Sr.No.": "110",
+            "name": "Vishakha Kulkarni",
+            "phone": "9881237418",
+            "count": "141"
+        },
+        {
+            "Sr.No.": "111",
+            "name": "Vishal Khanwalkar",
+            "phone": "7869020255",
+            "count": "290"
+        },
+        {
+            "Sr.No.": "112",
+            "name": "Vivek Ganmukhi",
+            "phone": "9823784478",
+            "count": "0"
+        },
+        {
+            "Sr.No.": "113",
+            "name": "Vrushali Chincholkar",
+            "phone": "9665248146",
+            "count": "138"
+        },
+        {
+            "Sr.No.": "114",
+            "name": "Yashdeep Sant",
+            "phone": "8600336214",
+            "count": "1954"
+        },
+    ]
+    d.map(d => {
+        axios.post('https://joyletterappp.herokuapp.com/user/save', {
+            name: d.name,
+            phone: d.phone,
+            group: "5dcee3fb69e30b001770b291"
+        })
+            .then(res => {
+                axios.post('https://joyletterappp.herokuapp.com/user/jap', {
+                    user: res.data.event._id,
+                    sankalp: "5dcee42169e30b001770b294",
+                    count: d.count,
+                    happy: 5,
+                    pages: 0,
+                })
+
+            })
+
+
+    })
+</script>
