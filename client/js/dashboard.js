@@ -43,12 +43,16 @@ function sendJap() {
             .then(res1 => {
                 console.log(res1.data)
                 if (res1.data.success) {
-                    if (getStorage("lang") == 0) {
-                        document.getElementById("main").innerHTML = ` <h2>Successfully Recorded </h2><h3>Take nam & please see you ranking on Leaderboard </h3>`
+                    if (getStorage("lang") == 1) {
+                        document.getElementById("main").innerHTML = ` <h2>Successfully Recorded, </h2><h3>Please see your ranking on Leaderboard.<br>Take Nam and Be Happy. </h3>`
+
+                    }
+                    else if (getStorage("lang") == 2) {
+                        document.getElementById("main").innerHTML = ` <h2>यशस्वीरीत्या रेकॉर्ड केले आहे. </h2><h3>क्रुपया लीडरबोर्डवरील आपली रेंकींग पहा.<br>नाम घ्यावे , आनंदात असावे. </h3>`
 
                     }
                     else
-                        document.getElementById("main").innerHTML = ` <h2>Successfully Recorded </h2><h3>Take nam & please see you ranking on Leaderboard </h3> `
+                        document.getElementById("main").innerHTML = ` <h2>सफलतापूर्वक रिकॉर्ड किया गया,</h2><h3>कृपया लीडरबोर्ड पर अपनी रैंकिंग देखें।<br>नाम लो और खुश रहो। </h3> `
 
                 }
 
@@ -219,10 +223,6 @@ function myjap(d) {
 function todayJap() {
     if (document.getElementById('mala').value != 0 && start != 0) {
 
-
-        // axios.post(`${url}user/canjap`, { user: getStorage('user')._id }).then(res => {
-        // console.log(res.data)
-        // if (res.data.event) {
         axios.post(`${url}user/canjap`, {
             user: getStorage('user')._id,
             sankalp: getStorage('sankalp')._id,
@@ -233,12 +233,16 @@ function todayJap() {
             .then(res1 => {
                 console.log(res1.data)
                 if (res1.data.success) {
-                    if (getStorage("lang") == 0) {
-                        document.getElementById("main").innerHTML = ` <h2>Successfully Recorded </h2><h3>Take nam & please see you ranking on Leaderboard </h3>`
+                    if (getStorage("lang") == 1) {
+                        document.getElementById("main").innerHTML = ` <h2>Successfully Recorded, </h2><h3>Please see your ranking on Leaderboard.<br>Take Nam and Be Happy. </h3>`
+
+                    }
+                    else if (getStorage("lang") == 2) {
+                        document.getElementById("main").innerHTML = ` <h2>यशस्वीरीत्या रेकॉर्ड केले आहे. </h2><h3>क्रुपया लीडरबोर्डवरील आपली रेंकींग पहा.<br>नाम घ्यावे , आनंदात असावे. </h3>`
 
                     }
                     else
-                        document.getElementById("main").innerHTML = ` <h2>Successfully Recorded </h2><h3>Take nam & please see you ranking on Leaderboard </h3> `
+                        document.getElementById("main").innerHTML = ` <h2>सफलतापूर्वक रिकॉर्ड किया गया,</h2><h3>कृपया लीडरबोर्ड पर अपनी रैंकिंग देखें।<br>नाम लो और खुश रहो। </h3> `
 
                 }
 

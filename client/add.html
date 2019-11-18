@@ -712,12 +712,12 @@
         axios.post('https://joyletterappp.herokuapp.com/user/save', {
             name: d.name,
             phone: d.phone,
-            group: "5dcee3fb69e30b001770b291"
+            group: "5dd023f01d6b7e0ead8bf1fd"
         })
             .then(res => {
                 axios.post('https://joyletterappp.herokuapp.com/user/jap', {
                     user: res.data.event._id,
-                    sankalp: "5dcee42169e30b001770b294",
+                    sankalp: "5dd0243c1eef7d109262d2c2",
                     count: d.count,
                     happy: 5,
                     pages: 0,

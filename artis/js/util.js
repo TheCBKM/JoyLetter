@@ -10,8 +10,10 @@ setTimeout(() => {
 
 var gotdata = false
 var resdata
-const url='https://joyletterapp.herokuapp.com'
+// const url='https://joyletterapp.herokuapp.com'
 // const url = 'http://localhost:5000'
+const url='http://3.93.94.220:5000'
+
 
 // setInterval(getdata, 1000)
 function waitPromise() {

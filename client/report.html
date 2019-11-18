@@ -49,7 +49,7 @@
         function login() {
             if (document.getElementById("username").value == "cbkm" && document.getElementById("pass").value == "cbkm") {
                 document.getElementById("main").innerHTML = "!!!!! Fetching data this will take couple of minutes Please wait don't refresh !!!!! "
-                axios.get('https://joyletterapp.herokuapp.com/admin/report')
+                axios.get('http://3.93.94.220:5000/admin/report')
                     .then(res => {
                         if (res.data.success) {
                             console.log(res)
